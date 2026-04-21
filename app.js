@@ -194,9 +194,9 @@ const QUESTIONS = [
     type: 'short',
     question: 'Please list the 3 cloud computing models with brief descriptions.（請列出三種雲端運算模式並簡短描述）',
     answer: [
-      'SaaS（Software as a Service）：所有軟硬體資源都委外管理。',
-      'PaaS（Platform as a Service）：提供平台，使用者負責程式碼。',
-      'IaaS（Infrastructure as a Service）：僅提供硬體設施委外，其餘內部管理。',
+      'SaaS（Software as a Service）：由服務提供商全面管理應用程式與基礎設施，使用者只需使用服務。',
+      'PaaS（Platform as a Service）：由服務提供商提供開發與執行平台，使用者負責應用程式的開發與管理。',
+      'IaaS（Infrastructure as a Service）：由服務提供商提供基礎運算資源（如虛擬機、網路、儲存），使用者負責作業系統與應用程式管理。',
     ],
     keywords: ['saas', 'paas', 'iaas'],
     explanation: '三種雲端運算模式：\n• SaaS — 所有軟硬體資源都委外管理\n• PaaS — 提供平台，使用者負責程式碼\n• IaaS — 僅提供硬體設施委外，其餘內部管理',
@@ -556,8 +556,10 @@ document.addEventListener('keydown', (e) => {
 
   // 選擇題快捷鍵
   if (q && q.type === 'mc' && !answered) {
-    const keyMap = { '1': 'A', '2': 'B', '3': 'C', '4': 'D', '5': 'E',
-                     'a': 'A', 'b': 'B', 'c': 'C', 'd': 'D', 'e': 'E' };
+    const keyMap = {
+      '1': 'A', '2': 'B', '3': 'C', '4': 'D', '5': 'E',
+      'a': 'A', 'b': 'B', 'c': 'C', 'd': 'D', 'e': 'E'
+    };
     const letter = keyMap[e.key.toLowerCase()];
     if (letter && q.options.find(o => o.letter === letter)) {
       selectOption(letter, q);
